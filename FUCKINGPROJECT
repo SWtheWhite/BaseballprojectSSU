@@ -1,1 +1,65 @@
+#include <stdio.h>
 
+int main(void)
+{
+	printf("====================\n");
+	printf("%%%%%% 신나는야구%%%%%%\n");
+	printf("1: 야구공선택\n");
+	printf("2: 플레이\n");
+	printf("3: 종료\n");
+	printf("====================\n");
+	printf("메뉴를 선택하세요.\n");
+
+	int x, i, n = 10;
+	char y;
+	while (1)
+	{
+		scanf("%d", &x);
+		if (x == 1)
+		{
+			printf("====================\n");
+			printf("야구공을 선택합니다.\n");
+			printf("(A~Z 사이의 문자 10개를 입력해주세요.)\n");
+			printf("(0: 자동선택)\n");
+			printf("====================\n");
+			printf("문자를 한개씩 입력해주세요.(10개남음):\n");
+			break;
+		}
+		if (x == 2)
+		{
+			printf("먼저 야구공을 선택해주세요.\n");
+			continue;
+		}
+		if (x == 3)
+		{
+			printf("게임을 종료합니다\n");
+			break;
+		}
+		else
+		{
+			printf("%d은 없는 메뉴입니다.\n", x);
+			printf("메뉴를 선택하세요.\n");
+			continue;
+		}
+	}
+	while (1)
+	{
+		scanf(" %c", &y);
+		if (y <= 90 && y >= 65)
+		{
+			n--;
+			printf("문자를한개씩입력해주세요(%d개남음)\n", n);
+			if (n == 0)
+			{
+				break;
+			}
+		}
+		else
+		{
+			printf("%c는올바른야구공이아닙니다.\n", y);
+			printf("문자를한개씩입력해주세요.(%d개남음)\n", n);
+			continue;
+		}
+
+	}
+}
