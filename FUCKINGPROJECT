@@ -17,7 +17,7 @@ int main()
 {
 	int i, n = 10;
 	char way;
-	char ball[10];
+	char ball[10] = {0};
 	srand((unsigned)time(NULL));
 
 	do 
@@ -26,14 +26,28 @@ int main()
 		scanf("%d", &way);
 		if (way == 1)
 		{
+			if (ball[i] != 0)
+			{
+				printf("이미 야구공을 선택하셨습니다.\n");
+			}
+
 			for (i = 0; i < n; i++)
 			{
 				printf("문자를 한개씩 입력해주세요.(%d개남음):\n",(n-i));
 				scanf(" %c", ball[i]);
-				if (ball[i] == 0)
+				if (ball[i] <= 'Z' && ball[i] >= 'A')
+					continue;
+				else if (ball[i] == 0)
 				{
+
 					for (i; i < n; i++)
 						ball[i] = rand() % ('Z' - 'A' + 1) + 'A';
+				}
+				else
+				{
+					printf("%c는올바른야구공이아닙니다.\n", ball[i]);
+					i++;
+					continue;
 				}
 			}
 		}
@@ -46,6 +60,7 @@ int main()
 		else
 		{
 			printf("""%c은 없는 메뉴입니다.""",way);
+			printf("메뉴를 선택하세요.\n");
 			continue;
 		}
 
