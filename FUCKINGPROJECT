@@ -23,7 +23,27 @@ int main(void)
 			printf("(0: 자동선택)\n");
 			printf("====================\n");
 			printf("문자를 한개씩 입력해주세요.(10개남음):\n");
-			break;
+			
+			while (1)
+			{
+				scanf(" %c", &y);
+				if (y <= 90 && y >= 65)
+			{
+				n--;
+				printf("문자를한개씩입력해주세요(%d개남음)\n", n);
+				if (n == 0)
+				{
+					break;
+				}
+		}
+		else
+		{
+			printf("%c는올바른야구공이아닙니다.\n", y);
+			printf("문자를한개씩입력해주세요.(%d개남음)\n", n);
+			continue;
+		}
+
+	}
 		}
 		if (x == 2)
 		{
@@ -42,24 +62,5 @@ int main(void)
 			continue;
 		}
 	}
-	while (1)
-	{
-		scanf(" %c", &y);
-		if (y <= 90 && y >= 65)
-		{
-			n--;
-			printf("문자를한개씩입력해주세요(%d개남음)\n", n);
-			if (n == 0)
-			{
-				break;
-			}
-		}
-		else
-		{
-			printf("%c는올바른야구공이아닙니다.\n", y);
-			printf("문자를한개씩입력해주세요.(%d개남음)\n", n);
-			continue;
-		}
-
-	}
+	
 }
