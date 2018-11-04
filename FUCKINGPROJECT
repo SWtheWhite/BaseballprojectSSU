@@ -4,7 +4,7 @@
 
 void line()
 {
-	printf("====================\n");
+	printf("==========================\n");
 }
 
 void menu()
@@ -37,7 +37,7 @@ void menu2()
 int main()
 {
 	int i, j, k, cnt, strike, ball;
-	int way=NULL, n = 10, tries = 9;
+	int way=1, n = 10, tries = 9;
 	char Bball[10] = { 0 };
 	char pitch[3];
 	char bat[3];
@@ -45,8 +45,7 @@ int main()
 
 	while (1)
 	{
-		//menu();
-		if (way == NULL)
+		if (way==1||way==2||way==3)
 			menu();
 		printf("메뉴를 선택하세요: ");
 
@@ -69,7 +68,6 @@ int main()
 					}
 
 					if (Bball[i] >= 'A' && Bball[i] <= 'Z') {
-						way = NULL;
 						continue;
 					}
 					else if (Bball[i] == '0')
@@ -88,7 +86,6 @@ int main()
 					{
 						printf("\"%c\"는 올바른 야구공이 아닙니다.\n", Bball[i]);
 						i--;
-						way = NULL;
 						continue;
 					}
 				}
@@ -100,7 +97,6 @@ int main()
 					printf("%c", Bball[i]);
 				}
 				printf("\n");
-				way = NULL;
 		}
 
 		else if (way == 2)
@@ -110,6 +106,7 @@ int main()
 			if (Bball[1] == 0)
 			{
 				printf("먼저 야구공을 선택해 주세요.\n");
+				way = NULL;
 			}
 			else
 			{
@@ -155,7 +152,6 @@ int main()
 					if (cnt != 3)
 					{
 						printf("잘못된 입력입니다.\n");
-						way = NULL;
 						continue;
 					}
 
@@ -176,7 +172,6 @@ int main()
 					if (strike == 3)
 					{
 						printf("축하합니다! 승리하였습니다.\n");
-						way = NULL;
 						break;
 					}
 					else
@@ -202,14 +197,12 @@ int main()
 
 		else if (way == 3)
 		{
-			printf("게임을 종료합니다.");
-			way = NULL;
+			printf("게임을 종료합니다.\n");
 			break;
 		}
 		else
 		{
 			printf("\"%d\"은 없는 메뉴입니다.\n", way);
-			//printf("메뉴를 선택하세요: ");
 			continue;
 		}
 
