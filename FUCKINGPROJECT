@@ -47,14 +47,14 @@ int main()
 	while (1)
 	{
 		menu();
-		scanf("%d", &way);
+		scanf_s("%d", &way);
 		if (way == 1)
 		{
 			menu1();
 			for (i = 0; i < n; i++)
 			{
 				printf("문자를 한개씩 입력해주세요.(%d개남음):\n", (n - i));
-				scanf(" %c", &Bball[i]);
+				scanf_s(" %c", &Bball[i]);
 
 				for (j = 0; j < i; j++)
 				{
@@ -137,7 +137,7 @@ int main()
 					printf("문자를 세 개 입력해 주세요 (%d회 남음): \n", (tries - i));
 					for (j = 0; j < 3; j++)
 					{
-						scanf(" %c", &bat[j]);
+						scanf_s(" %c", &bat[j]);
 						for (k = 0; k < n; k++)
 						{
 							if (bat[j] == Bball[k])
@@ -195,7 +195,7 @@ int main()
 
 		else if (way == 3)
 		{
-		printf("게임을 종료합니다.\n");
+			printf("게임을 종료합니다.\n");
 			break;
 		}
 		else
