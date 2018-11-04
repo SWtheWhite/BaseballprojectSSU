@@ -10,12 +10,12 @@ void line()
 void menu()
 {
 	line();
-	printf("%%%%%% 신나는야구%%%%%%\n");
-	printf("1: 야구공선택\n");
+	printf("%%%%%% 신나는 야구%%%%%%\n");
+	printf("1: 야구공 선택\n");
 	printf("2: 플레이\n");
 	printf("3: 종료\n");
 	line();
-	printf("메뉴를 선택하세요: ");
+	printf("메뉴를 선택하세요: \n");
 }
 
 void menu1()
@@ -32,7 +32,7 @@ void menu2()
 	line();
 	printf("컴퓨터가 야구공을 3개 선택했습니다.\n");
 	printf("컴퓨터가 선택한 야구공을 9번안에 맞춰주세요\n");
-	printf("사용하는 야구공: ");
+	printf("사용하는 야구공: \n");
 }
 
 int main()
@@ -50,50 +50,50 @@ int main()
 		scanf("%d", &way);
 		if (way == 1)
 		{
-				menu1();
-				for (i = 0; i < n; i++)
+			menu1();
+			for (i = 0; i < n; i++)
+			{
+				printf("문자를 한개씩 입력해주세요.(%d개남음):\n", (n - i));
+				scanf(" %c", &Bball[i]);
+
+				for (j = 0; j < i; j++)
 				{
-					printf("문자를 한개씩 입력해주세요.(%d개남음):", (n - i));
-					scanf(" %c", &Bball[i]);
-
-					for (j =0;j < i;j++)
+					if ((Bball[i] == Bball[j]) && Bball[i] != 0)
 					{
-						if ((Bball[i] == Bball[j]) && Bball[i] != 0)
-						{
-							printf("\"%c\"는 이미 선택된 야구공입니다.\n",Bball[i]);
-							i--;
-						}
-					}
-
-					if (Bball[i] >= 'A' && Bball[i] <= 'Z')
-						continue;
-
-					else if (Bball[i] == '0')
-					{
-						for (i; i < n; i++)
-						{
-							Bball[i] = rand() % ('Z' - 'A'+1) + 'A';
-							for (j = 0;j < i;j++)
-							{
-								if ((Bball[i] == Bball[j]))
-									i--;
-							}
-						}
-					}
-					else
-					{
-						printf("\"%c\"는 올바른 야구공이 아닙니다.\n", Bball[i]);
+						printf("\"%c\"는 이미 선택된 야구공입니다.\n", Bball[i]);
 						i--;
-						continue;
 					}
 				}
-				printf("모든 야구공이 선택되었습니다:");
-				for (i = 0;i < n;i++)
+
+				if (Bball[i] >= 'A' && Bball[i] <= 'Z')
+					continue;
+
+				else if (Bball[i] == '0')
 				{
-					printf("%c", Bball[i]);
-					printf(",");
+					for (i; i < n; i++)
+					{
+						Bball[i] = rand() % ('Z' - 'A' + 1) + 'A';
+						for (j = 0; j < i; j++)
+						{
+							if ((Bball[i] == Bball[j]))
+								i--;
+						}
+					}
 				}
-				printf("\n");
+				else
+				{
+					printf("\"%c\"는 올바른 야구공이 아닙니다.\n", Bball[i]);
+					i--;
+					continue;
+				}
+			}
+			printf("모든 야구공이 선택되었습니다:\n");
+			for (i = 0; i < n; i++)
+			{
+				printf("%c", Bball[i]);
+				printf(",");
+			}
+			printf("\n");
 		}
 
 		else if (way == 2)
@@ -106,10 +106,10 @@ int main()
 			}
 			else
 			{
-				for (i = 0;i < 3;i++)
+				for (i = 0; i < 3; i++)
 				{
 					pitch[i] = Bball[rand() % 10];
-					for (j = 0;j < i;j++)
+					for (j = 0; j < i; j++)
 					{
 						if (pitch[i] == pitch[j])
 						{
@@ -117,13 +117,13 @@ int main()
 						}
 					}
 				}
-				
-				for (i = 0;i <3;i++)
+
+				for (i = 0; i < 3; i++)
 					printf("%c", pitch[i]);
 				printf("\n");
 
 				menu2();
-				for (i = 0;i < n;i++)
+				for (i = 0; i < n; i++)
 				{
 					printf("%c", Bball[i]);
 					printf(",");
@@ -131,14 +131,14 @@ int main()
 				printf("\n");
 				line();
 
-				for (i = 0;i < tries;i++)
+				for (i = 0; i < tries; i++)
 				{
 					cnt = 0;
-					printf("문자를 세 개 입력해 주세요 (%d회 남음): ", (tries-i));
-					for (j = 0;j < 3;j++)
+					printf("문자를 세 개 입력해 주세요 (%d회 남음): \n", (tries - i));
+					for (j = 0; j < 3; j++)
 					{
 						scanf(" %c", &bat[j]);
-						for (k = 0;k < n;k++)
+						for (k = 0; k < n; k++)
 						{
 							if (bat[j] == Bball[k])
 								cnt++;
@@ -150,9 +150,9 @@ int main()
 						continue;
 					}
 
-					for (j = 0;j < 3;j++)
+					for (j = 0; j < 3; j++)
 					{
-						for(k=0;k<3;k++)
+						for (k = 0; k < 3; k++)
 						{
 							if (bat[j] == pitch[k])
 							{
@@ -172,7 +172,10 @@ int main()
 					else
 					{
 						if ((tries - i) == 1)
+						{
 							printf("더 이상 기회가 없습니다. 패배하였습니다.\n");
+							continue;
+						}
 						else
 						{
 							if (strike == 0 && ball == 0)
@@ -185,18 +188,19 @@ int main()
 							}
 						}
 					}
-					
+
 				}
 			}
 		}
 
 		else if (way == 3)
+		{
+		printf("게임을 종료합니다.\n");
 			break;
-
+		}
 		else
 		{
 			printf("\"%d\"은 없는 메뉴입니다.\n", way);
-			printf("메뉴를 선택하세요: \n");
 			continue;
 		}
 
