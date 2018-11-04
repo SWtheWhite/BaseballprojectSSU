@@ -73,7 +73,7 @@ int main()
 					{
 						if ((Bball[i] == Bball[j]) && Bball[i] != 0)
 						{
-							printf("%c는 이미 선택된 야구공입니다.\n",ball[i]);
+							printf("%c는 이미 선택된 야구공입니다.\n",Bball[i]);
 							i--;
 						}
 					}
@@ -127,7 +127,7 @@ int main()
 					{
 						if (pitch[i] == bat[i])
 						{
-							printf("");
+							strike++;
 						}
 					}
 				}
