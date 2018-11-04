@@ -10,7 +10,7 @@ void line()
 void menu()
 {
 	line();
-	printf("%%%%%% 신나는 야구 게임%%%%%%\n");
+	printf("%%%%%% 신나는 야구 게임 %%%%%%\n");
 	printf("1: 야구공 선택\n");
 	printf("2: 플레이\n");
 	printf("3: 종료\n");
@@ -55,7 +55,7 @@ int main()
 				menu1();
 				for (i = 0; i < n; i++)
 				{
-					printf("문자를 한개씩 입력해주세요.(%d개남음):", (n - i));
+					printf("문자를 한개씩 입력해주세요.(%d개남음): ", (n - i));
 					scanf(" %c", &Bball[i]);
 
 					for (j =0;j < i;j++)
@@ -89,7 +89,7 @@ int main()
 						continue;
 					}
 				}
-				printf("모든 야구공이 선택되었습니다:");
+				printf("모든 야구공이 선택되었습니다: ");
 				printf("%c", Bball[0]);
 				for (i = 1;i < n;i++)
 				{
